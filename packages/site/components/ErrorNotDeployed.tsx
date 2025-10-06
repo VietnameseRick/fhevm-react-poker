@@ -1,4 +1,4 @@
-export function errorNotDeployed(chainId: number | undefined) {
+export function ErrorNotDeployed(chainId: number | undefined) {
   return (
     <div className="grid w-full gap-4 mx-auto font-semibold bg-none">
       <div className="col-span-full mx-20">
@@ -22,7 +22,7 @@ export function errorNotDeployed(chainId: number | undefined) {
         </p>
         <p className="font-mono text-2xl leading-relaxed bg-black text-white p-4 mt-12">
           <span className="opacity-50 italic text-red-500">
-            #from &lt;root&gt;/packages/fhevm-hardhat-template
+            #from &lt;root&gt;/packages/fhevm-poker
           </span>
           <br />
           npx hardhat deploy --network{" "}

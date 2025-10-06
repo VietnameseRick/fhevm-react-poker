@@ -2,7 +2,7 @@ import { execSync } from "child_process";
 import * as path from "path";
 import * as fs from "fs";
 
-const CONTRACTS_PACKAGE_DIR = "fhevm-hardhat-template";
+const CONTRACTS_PACKAGE_DIR = "fhevm-poker";
 
 function getContractsPackageName() {
   const pkgDir = path.resolve(`./packages/${CONTRACTS_PACKAGE_DIR}`);
@@ -44,6 +44,35 @@ export async function tryGetWeb3ClientVersion() {
     };
   } catch (e) {
     return { version: undefined, error: e };
+  }
+}
+
+async function getBlockNumber(url) {
+  const r = await fetch(url, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      jsonrpc: "2.0",
+      id: 1,
+      method: "eth_blockNumber",
+      params: [],
+    }),
+  });
+  if (!r.ok) {
+    throw new Error("Http status:" + r.status + " " + r.statusText);
+  }
+  const data = await r.json();
+  if (data.error) {
+    throw new Error("Unknown error");
+  }
+  return data.result;
+}
+
+export async function tryGetBlockNumber() {
+  try {
+    return await getBlockNumber("http://localhost:8545");
+  } catch (e) {
+    return undefined;
   }
 }
 

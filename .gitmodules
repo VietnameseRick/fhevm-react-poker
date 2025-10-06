@@ -1,0 +1,3 @@
+[submodule "packages/fhevm-poker"]
+	path = packages/fhevm-poker
+	url = https://github.com/VietnameseRick/fhevm-poker.git
