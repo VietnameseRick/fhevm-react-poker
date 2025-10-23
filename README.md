@@ -1,21 +1,34 @@
-# FHEVM React Template
+# FHE Poker 🎰
 
-The FHEVM React Template is an ultra-minimal React project for building and running an FHEVM-enabled dApp.
-It works alongside the [fhevm-hardhat-template](https://github.com/zama-ai/fhevm-hardhat-template)
-and provides a simple development frontend for interacting with the `FHECounter.sol` contract.
+**Privacy-first blockchain poker powered by Fully Homomorphic Encryption (FHE)**
 
-This template also illustrates how to run your FHEVM-dApp on both Sepolia as well as a local Hardhat Node (much faster).
+Play Texas Hold'em with truly private cards. No one—not even the blockchain—can see your cards until showdown. Built with Zama's fhEVM technology for provably fair gameplay with complete privacy.
 
-## Features
+🎮 **[Play Demo](https://ghub.bet)** | 📖 **[Documentation](./packages/fhevm-poker/README.md)** | 💬 **[Discord](https://discord.com/invite/zama)**
 
-- **@zama-fhe/relayer-sdk**: Fully Homomorphic Encryption for Ethereum Virtual Machine
-- **React**: Modern UI framework for building interactive interfaces
-- **Next.js**: Next-generation frontend build tool
-- **Tailwind**: Utility-first CSS framework for rapid UI development
+## ✨ Features
 
-## Requirements
+- 🔐 **Fully Private Cards** - Cards remain encrypted on-chain until showdown
+- 🎲 **Provably Fair** - FHE-powered shuffle ensures unpredictable, verifiable randomness
+- ⚡ **Real-time Gameplay** - Smooth, responsive poker experience
+- 💰 **Multi-player Tables** - Up to 10 players per table
+- 🎨 **Cyberpunk UI** - Beautiful, modern interface with smooth animations
+- 🔗 **Blockchain-Native** - All game logic runs on-chain with FHE smart contracts
 
-- You need to have Metamask browser extension installed on your browser.
+## 🛠️ Technology Stack
+
+- **Smart Contracts**: Solidity + Zama's fhEVM
+- **Frontend**: Next.js 15 + React 19
+- **Styling**: TailwindCSS + Custom Animations
+- **Encryption**: Fully Homomorphic Encryption (FHE)
+- **Wallet**: Privy + WalletConnect
+- **State Management**: Zustand
+
+## 📋 Prerequisites
+
+- **Node.js**: Version 20 or higher
+- **npm**: Version 7.0.0 or higher
+- **Wallet**: MetaMask, WalletConnect, or any EIP-6963 compatible wallet
 
 ## Local Hardhat Network (to add in MetaMask)
 
@@ -26,109 +39,178 @@ Follow the step-by-step guide in the [Hardhat + MetaMask](https://docs.metamask.
 - Chain ID: 31337
 - Currency symbol: ETH
 
-## Install
+## 🚀 Quick Start
 
-1. Clone this repository.
-2. From the repo root, run:
+### 1. Install Dependencies
 
-```sh
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/fhe-poker.git
+cd fhe-poker
+
+# Install dependencies
 npm install
 ```
 
-## Quickstart
+### 2. Setup Environment Variables
 
-1. Setup your hardhat environment variables:
+```bash
+# Set up Hardhat mnemonic for local development
+npx hardhat vars set MNEMONIC
 
-Follow the detailed instructions in the [FHEVM documentation](https://docs.zama.ai/protocol/solidity-guides/getting-started/setup#set-up-the-hardhat-configuration-variables-optional) to setup `MNEMONIC` + `INFURA_API_KEY` Hardhat environment variables
+# (Optional) Set Infura API key for testnet deployment
+npx hardhat vars set INFURA_API_KEY
 
-2. Start a local Hardhat node (new terminal):
-
-```sh
-# Default RPC: http://127.0.0.1:8545  | chainId: 31337
-npm run hardhat-node
+# (Optional) Set Etherscan API key for contract verification
+npx hardhat vars set ETHERSCAN_API_KEY
 ```
 
-3. Launch the frontend in mock mode:
+### 3. Run Locally (Mock Mode)
 
-```sh
+```bash
+# Terminal 1: Start local Hardhat node
+npm run hardhat-node
+
+# Terminal 2: Deploy contracts and start frontend
 npm run dev:mock
 ```
 
-4. Start your browser with the Metamask extension installed and open http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-5. Open the Metamask extension to connect to the local Hardhat node
-   i. Select Add network.
-   ii. Select Add a network manually.
-   iii. Enter your Hardhat Network RPC URL, http://127.0.0.1:8545 (or http://localhost:8545).
-   iv. Enter your Hardhat Network chain ID, 31337 (or 0x539 in hexadecimal format).
+### 4. Configure MetaMask for Local Network
 
-## Run on Sepolia
+1. Open MetaMask extension
+2. Add network manually:
+   - **Network Name**: Hardhat Local
+   - **RPC URL**: http://127.0.0.1:8545
+   - **Chain ID**: 31337
+   - **Currency**: ETH
 
-1. Deploy your contract on Sepolia Testnet
+## 🌐 Deploy to Sepolia Testnet
 
-```sh
+```bash
+# Deploy contracts
 npm run deploy:sepolia
+
+# Run frontend pointing to Sepolia
+npm run dev
+
+# Visit http://localhost:3000 and connect to Sepolia in MetaMask
 ```
 
-2. In your browser open `http://localhost:3000`
+## 📁 Project Structure
 
-3. Open the Metamask extension to connect to the Sepolia network
+```
+fhevm-gameplay/
+├── packages/
+│   ├── fhevm-poker/          # Smart contracts & Hardhat
+│   │   ├── contracts/        # Solidity contracts (FHEPoker.sol)
+│   │   ├── tasks/            # Hardhat tasks for testing
+│   │   ├── deploy/           # Deployment scripts
+│   │   ├── LICENSE-BSL       # Business Source License
+│   │   └── README.md
+│   │
+│   └── site/                 # Next.js frontend
+│       ├── app/              # Next.js 15 app directory
+│       ├── components/       # React components
+│       ├── hooks/            # Custom React hooks
+│       ├── stores/           # Zustand state management
+│       ├── abi/              # Contract ABIs
+│       ├── LICENSE-BSL       # Business Source License
+│       └── README.md
+│
+├── scripts/                  # Build & deployment scripts
+└── README.md                 # This file
+```
 
-## How to fix Hardhat Node + Metamask Errors ?
+## 🎮 How to Play
 
-When using MetaMask as a wallet provider with a development node like Hardhat, you may encounter two common types of errors:
+1. **Create/Join Table**: Connect wallet and join an existing table or create a new one
+2. **Buy-In**: Add chips to your stack (minimum buy-in set per table)
+3. **Play Poker**: Standard Texas Hold'em rules apply
+4. **Private Cards**: Your cards are encrypted—only you can decrypt and see them
+5. **Showdown**: At showdown, cards are revealed via FHE decryption
+6. **Winner Determined**: Smart contract evaluates hands and awards pot automatically
 
-### 1. ⚠️ Nonce Mismatch ❌💥
+## 📚 Documentation
 
-MetaMask tracks wallet nonces (the number of transactions sent from a wallet). However, if you restart your Hardhat node, the nonce is reset on the dev node, but MetaMask does not update its internal nonce tracking. This discrepancy causes a nonce mismatch error.
+- **[Smart Contract Documentation](./packages/fhevm-poker/README.md)** - Contract details & Hardhat tasks
+- **[Frontend Documentation](./packages/site/README.md)** - React components & hooks
+- **[FHEVM Documentation](https://docs.zama.ai/protocol/)** - Learn about FHE technology
+- **[Zama Discord](https://discord.com/invite/zama)** - Join the community
 
-### 2. ⚠️ View Function Call Result Mismatch ❌💥
+## 🧪 Testing
 
-MetaMask caches the results of view function calls. If you restart your Hardhat node, MetaMask may return outdated cached data corresponding to a previous instance of the node, leading to incorrect results.
+```bash
+# Run smart contract tests
+npm run test
 
-### ✅ How to Fix Nonce Mismatch:
+# Run frontend tests
+npm run test:site
 
-To fix the nonce mismatch error, simply clear the MetaMask cache:
+# Generate coverage report
+npm run coverage
+```
 
-1. Open the MetaMask browser extension.
-2. Select the Hardhat network.
-3. Go to Settings > Advanced.
-4. Click the "Clear Activity Tab" red button to reset the nonce tracking.
+## 🔧 Available Commands
 
-The correct way to do this is also explained [here](https://docs.metamask.io/wallet/how-to/run-devnet/).
+| Command | Description |
+|---------|-------------|
+| `npm run hardhat-node` | Start local Hardhat node |
+| `npm run dev:mock` | Run frontend in mock mode |
+| `npm run deploy:sepolia` | Deploy to Sepolia testnet |
+| `npm run test` | Run all tests |
+| `npm run compile` | Compile smart contracts |
 
-### ✅ How to Fix View Function Return Value Mismatch:
+## 📄 License
 
-To fix the view function result mismatch:
+This project uses a **dual license** structure:
 
-1. Restart the entire browser. MetaMask stores its cache in the extension's memory, which cannot be cleared by simply clearing the browser cache or using MetaMask's built-in cache cleaning options.
+### FHE Poker Implementation (Your Code)
+- **License**: Business Source License 1.1 (BSL 1.1)
+- **Licensor**: vietnameserick (Tra Anh Khoi)
+- **Change Date**: 2029-01-01 (converts to MIT License)
+- **Commercial Use**: Requires separate licensing before change date
+- **Non-Commercial Use**: Free for development, testing, research, personal projects
 
-By following these steps, you can ensure that MetaMask syncs correctly with your Hardhat node and avoid potential issues related to nonces and cached view function results.
+See [LICENSE-BSL](./packages/fhevm-poker/LICENSE-BSL) for complete terms.
 
-## Project Structure Overview
+### Zama fhEVM Technology
+- **License**: BSD 3-Clause Clear License
+- **Copyright**: (c) 2025 Zama
 
-### Key Files/Folders
+See [LICENSE](./LICENSE) for complete terms.
 
-- **`<root>/packages/site/fhevm`**: This folder contains the essential hooks needed to interact with FHEVM-enabled smart contracts. It is meant to be easily copied and integrated into any FHEVM + React project.
+### Commercial Licensing
+For commercial licensing inquiries before the change date:
+- **Email**: vietnameserick@tuta.com
+- **Licensor**: vietnameserick (Tra Anh Khoi)
 
-- **`<root>/packages/site/hooks/useFHECounter.tsx`**: A simple React custom hook that demonstrates how to use the `useFhevm` hook in a basic use case, serving as an example of integration.
+For Zama fhEVM licensing:
+- **Website**: https://www.zama.ai/contact
 
-### Secondary Files/Folders
+## 🤝 Contributing
 
-- **`<root>/packages/site/hooks/metamask`**: This folder includes hooks designed to manage the MetaMask Wallet provider. These hooks can be easily adapted or replaced to support other wallet providers, following the EIP-6963 standard,
-- Additionally, the project is designed to be flexible, allowing developers to easily replace `ethers.js` with a more React-friendly library of their choice, such as `Wagmi`.
+Contributions are welcome! By contributing, you agree that your contributions will be licensed under the Business Source License 1.1.
 
-## Documentation
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-- [Hardhat + MetaMask](https://docs.metamask.io/wallet/how-to/run-devnet/): Set up your local devnet step by step using Hardhat and MetaMask.
-- [FHEVM Documentation](https://docs.zama.ai/protocol/solidity-guides/)
-- [FHEVM Hardhat](https://docs.zama.ai/protocol/solidity-guides/development-guide/hardhat)
-- [@zama-fhe/relayer-sdk Documentation](https://docs.zama.ai/protocol/relayer-sdk-guides/)
-- [Setting up MNEMONIC and INFURA_API_KEY](https://docs.zama.ai/protocol/solidity-guides/getting-started/setup#set-up-the-hardhat-configuration-variables-optional)
-- [React Documentation](https://reactjs.org/)
-- [FHEVM Discord Community](https://discord.com/invite/zama)
-- [GitHub Issues](https://github.com/zama-ai/fhevm-react-template/issues)
+## 👨‍💻 Author
 
-## License
+**vietnameserick** (Tra Anh Khoi)
+- Email: vietnameserick@tuta.com
+- GitHub: [@vietnameserick](https://github.com/vietnameserick)
 
-This project is licensed under the BSD-3-Clause-Clear License - see the LICENSE file for details.
+## 🙏 Acknowledgments
+
+- **Zama** for the groundbreaking fhEVM technology
+- **Uniswap** for pioneering the BSL 1.1 license structure
+- The FHE and blockchain communities
+
+---
+
+**Built with ❤️ using Zama's fhEVM**
