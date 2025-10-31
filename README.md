@@ -168,7 +168,7 @@ This project uses a **dual license** structure:
 
 ### FHE Poker Implementation (Your Code)
 - **License**: Business Source License 1.1 (BSL 1.1)
-- **Licensor**: vietnameserick (Tra Anh Khoi)
+- **Licensor**: 0xDRick (Tra Anh Khoi)
 - **Change Date**: 2029-01-01 (converts to MIT License)
 - **Commercial Use**: Requires separate licensing before change date
 - **Non-Commercial Use**: Free for development, testing, research, personal projects
@@ -183,8 +183,8 @@ See [LICENSE](./LICENSE) for complete terms.
 
 ### Commercial Licensing
 For commercial licensing inquiries before the change date:
-- **Email**: vietnameserick@tuta.com
-- **Licensor**: vietnameserick (Tra Anh Khoi)
+- **Email**: rick@thekey.studio
+- **Licensor**: 0xDRick (Tra Anh Khoi)
 
 For Zama fhEVM licensing:
 - **Website**: https://www.zama.ai/contact
@@ -201,8 +201,8 @@ Contributions are welcome! By contributing, you agree that your contributions wi
 
 ## 👨‍💻 Author
 
-**vietnameserick** (Tra Anh Khoi)
-- Email: vietnameserick@tuta.com
+**0xDRick** (Tra Anh Khoi)
+- Email: rick@thekey.studio
 - GitHub: [@vietnameserick](https://github.com/vietnameserick)
 
 ## 🙏 Acknowledgments
